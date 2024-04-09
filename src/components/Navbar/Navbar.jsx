@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <div className='flex gap-6 items-center justify-center'>
+      <div className='flex flex-col lg:flex-row  gap-4 items-center justify-center'>
         <NavLink
           to={"/"}
           className={({ isActive }) =>
@@ -76,15 +76,38 @@ const Navbar = () => {
 
   const profileLinks = (
     <>
-      <li>
-        <NavLink className="justify-between">Profile</NavLink>
-      </li>
-      <li>
-        <NavLink className="justify-between">Settings</NavLink>
-      </li>
-      <li>
-        <NavLink className="justify-between">Logout</NavLink>
-      </li>
+      <div className='flex flex-col gap-3 p-2'>
+        <NavLink
+          to={"/profile"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+              : "font-medium leading-snug text-base"
+          }
+        >
+          Profile
+        </NavLink>
+        <NavLink
+          to={"/settings"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+              : "font-medium leading-snug text-base"
+          }
+        >
+          Settings
+        </NavLink>
+        <NavLink
+          to={"/logout"}
+          className={({ isActive }) =>
+            isActive
+              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+              : "font-medium leading-snug text-base"
+          }
+        >
+          Logout
+        </NavLink>
+      </div>
     </>
   );
   return (
@@ -109,15 +132,15 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] shadow bg-white rounded-box w-52"
           >
             {navLinks}
           </ul>
         </div>
         <div className="flex items-center">
-          <img className="w-8 h-8 rounded-full" src={logoImg} alt="" />
+          <img className="hidden sm:flex w-8 h-8 rounded-full" src={logoImg} alt="" />
           <Link to={"/"} className="btn btn-ghost">
-            <h2 className="text-2xl font-bold">
+            <h2 className=" text-xl sm:text-2xl font-bold">
               Nest<span className="text-navColor">Quest</span>
             </h2>
           </Link>
@@ -129,8 +152,8 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-end flex space-x-4">
-        <Link className="text-base font-medium flex gap-1">
+      <div className="navbar-end flex sm:space-x-4">
+        <Link className="text-base font-medium hidden sm:flex gap-1">
           <span className="bg-red-200 rounded-full px-[5px] text-base font-semibold flex items-center justify-center">
             0
           </span>{" "}

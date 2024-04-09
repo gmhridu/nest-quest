@@ -20,7 +20,7 @@ const Root = () => {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto bg-white">
+    <div className="bg-white font-primary">
       <Navbar />
       <Outlet />
       <Footer />
