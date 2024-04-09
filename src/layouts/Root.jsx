@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const Root = () => {
   const location = useLocation();
@@ -18,8 +20,10 @@ const Root = () => {
   };
 
   return (
-    <div>
+    <div className="max-w-[1440px] mx-auto bg-white">
+      <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
