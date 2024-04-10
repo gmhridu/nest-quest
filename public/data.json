@@ -1,4 +1,5 @@
-[
+{
+  "estates": [
     {
       "id": 1,
       "segment_name": "Residential",
@@ -280,4 +281,5 @@
       }
     }
   ]
+}
 
