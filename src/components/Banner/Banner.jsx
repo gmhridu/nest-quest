@@ -79,7 +79,7 @@ const Banner = () => {
               </Carousel>
             </div>
           </div>
-          {/* form */}
+          {/*dropdown form */}
           <form
             onSubmit={handleSubmit}
             className="bg-white shadow-2xl rounded-3xl py-8 lg:w-1/3 relative lg:mt-0 mt-12"
@@ -105,10 +105,10 @@ const Banner = () => {
                 <option>Select Property Type</option>
               </select>
               <select
-                placeholder="Select Rooms"
+                placeholder="Price Range"
                 className="h-16 outline-none rounded-3xl bg-[#f6f6f6] border border-[#e5e5e5] px-6"
               >
-                <option>Select Rooms</option>
+                <option>Price Range</option>
               </select>
               <span className="flex items-center text-[#0ca39a] gap-x-2">
                 <VscSettings className="text-2xl" />
@@ -127,7 +127,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="lg:flex justify-center lg:-mt-9 mt-4 z-20 gap-x-8 lg:px-0 px-3">
+      <div className="lg:flex justify-center lg:-mt-9 mt-6 z-20 md:gap-x-8 space-y-6 md:space-y-0 lg:px-0 px-3">
         <div className="rounded-full py-2 lg:px-8 px-3 flex items-center justify-center gap-x-4 shadow-2xl bg-white">
           <div className="flex items-center justify-center relative h-10 w-44">
             <div className="avatar-group -space-x-6 rtl:space-x-reverse  border border-white absolute">
@@ -157,7 +157,14 @@ const Banner = () => {
             <p className="w-36 text-xl font-medium">72k+ Happy Customers</p>
           </div>
         </div>
+
+          <div className="flex gap-3 bg-white p-4 rounded-full shadow-2xl">
+            <img src="/src/assets/apart.jpg" alt="" className="w-12 h-12 rounded-full" />
+            <p className="md:text-xl font-medium">200+ New <br />
+            Listings Everyday!</p>
+          </div>
       </div>
+      
       <div className="lg:block hidden container mx-auto px-3 py-16">
         <span className="lg:flex items-end gap-x-60 lg:text-left text-center">
           <button className="lg:block hidden bg-gradient-to-r from-[#8bd3ce] to-[#eff9f9] rounded-full h-24 w-24 cursor-auto"></button>
