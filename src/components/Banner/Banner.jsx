@@ -5,7 +5,7 @@ import { MdMaximize } from "react-icons/md";
 import { VscSettings } from "react-icons/vsc";
 import { IoSearch } from "react-icons/io5";
 import Marquee from "react-fast-marquee";
-import { customerImg, marqueeImg, sliderImageUrl } from "../../utils/dataProvider";
+import { marqueeImg, sliderImageUrl } from "../../utils/dataProvider";
 
 const responsive = {
   module: {

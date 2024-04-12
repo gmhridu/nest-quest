@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home/Home";
+import SingleEstateData from "../components/SingleEstateData/SingleEstateData";
 
 const router = createBrowserRouter([
   {
@@ -11,10 +12,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: async () => {
-          const fetchData = await fetch('/public/data.json')
-          const data = await fetchData.json()
-          return data
-        }
+          const fetchData = await fetch("/public/data.json");
+          const data = await fetchData.json();
+          return data;
+        },
+      },
+      {
+        path: "/details/:id",
+        element: <SingleEstateData />,
       },
       {
         path: "/about",
