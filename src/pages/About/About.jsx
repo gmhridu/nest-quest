@@ -10,10 +10,11 @@ const About = () => {
           className="hero h-[40vh] my-4 bg-blend-color"
           style={{
             backgroundImage: `url(${aboutImg})`,
+            backgroundColor: "rgba(17, 40, 72, 0.629)",
           }}
         >
           <div className="hero-content flex-row">
-            <div className="text-whit">
+            <div className="text-white">
               <h1 className="text-5xl font-bold">About Us</h1>
               <p className="py-6 line-clamp-3 lg:line-clamp-0">
                 At our core, we are passionate about providing exceptional
