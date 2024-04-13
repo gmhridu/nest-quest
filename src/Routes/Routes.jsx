@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import SingleEstateData from "../components/SingleEstateData/SingleEstateData";
 import About from "../pages/About/About";
 import Services from "../pages/Services/Services";
+import Testiomonials from "../pages/Testiomonials/Testiomonials";
 
 const router = createBrowserRouter([
   {
@@ -32,12 +33,8 @@ const router = createBrowserRouter([
         element: <Services/>,
       },
       {
-        path: "/blog",
-        element: <div>Blog</div>,
-      },
-      {
-        path: "/pricing",
-        element: <div>Pricing</div>,
+        path: "/testimonials",
+        element: <Testiomonials/>,
       },
       {
         path: "/contact",

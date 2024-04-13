@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <div className='flex flex-col lg:flex-row  gap-6 items-center justify-center'>
+      <div className="flex flex-col lg:flex-row  gap-6 items-center justify-center">
         <NavLink
           to={"/"}
           className={({ isActive }) =>
@@ -41,17 +41,7 @@ const Navbar = () => {
           Services
         </NavLink>
         <NavLink
-          to={"/blog"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Services
-        </NavLink>
-        <NavLink
-          to={"/pricing"}
+          to={"/testimonials"}
           className={({ isActive }) =>
             isActive
               ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
