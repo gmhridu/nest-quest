@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <div className='flex flex-col lg:flex-row  gap-4 items-center justify-center'>
+      <div className='flex flex-col lg:flex-row  gap-6 items-center justify-center'>
         <NavLink
           to={"/"}
           className={({ isActive }) =>
@@ -48,7 +48,7 @@ const Navbar = () => {
               : "font-medium leading-snug text-base"
           }
         >
-          Blog
+          Services
         </NavLink>
         <NavLink
           to={"/pricing"}
@@ -58,7 +58,7 @@ const Navbar = () => {
               : "font-medium leading-snug text-base"
           }
         >
-          Pricing
+          Testimonials
         </NavLink>
         <NavLink
           to={"/contact"}
@@ -153,12 +153,6 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex sm:space-x-4">
-        <Link className="text-base font-medium hidden sm:flex gap-1">
-          <span className="bg-red-200 rounded-full px-[5px] text-base font-semibold flex items-center justify-center">
-            0
-          </span>{" "}
-          My List
-        </Link>
         <Link className="btn text-base font-bold bg-navColor outline-none border-none text-white hover:bg-[#2c635f]">
           {" "}
           <BiLogIn className="text-lg" />

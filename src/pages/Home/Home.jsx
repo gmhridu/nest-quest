@@ -3,6 +3,7 @@ import Banner from '../../components/Banner/Banner';
 import EstateData from '../../components/EstateData/EstateData';
 import WhoWeAre from '../../components/WhoWeAre/WhoWeAre';
 import { useLoaderData } from 'react-router-dom';
+import MeetOurTeam from '../../components/MeetOurTeam/MeetOurTeam';
 
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
     <div>
       <Banner />
       <WhoWeAre/>
-      <EstateData data={data}/>
+      <EstateData data={data} />
+      <MeetOurTeam data={data} />
     </div>
   );
 };
