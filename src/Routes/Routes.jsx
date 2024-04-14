@@ -6,6 +6,7 @@ import About from "../pages/About/About";
 import Services from "../pages/Services/Services";
 import Testiomonials from "../pages/Testiomonials/Testiomonials";
 import Contact from "../pages/Contact/Contact";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <Error/>,
+  }
 ]);
 
 export default router;

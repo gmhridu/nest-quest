@@ -7,7 +7,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-6 bg-white text-gray-900 my-8 lg:my-28">
+    <section className="py-6 text-gray-900 my-8 lg:my-28">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:py-0 md:px-6">
           <h1 className="text-4xl font-bold">Get in touch</h1>
