@@ -21,7 +21,7 @@ const Testiomonials = () => {
             <img
               src="https://source.unsplash.com/50x50/?portrait?1"
               alt=""
-              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300"
+              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
             />
             <p className="text-xl font-semibold leading-tight">Emily Johnson</p>
             <p className="text-sm uppercase">Los Angeles, CA</p>
@@ -39,7 +39,7 @@ const Testiomonials = () => {
             <img
               src="https://source.unsplash.com/50x50/?portrait?2"
               alt=""
-              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300"
+              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
             />
             <p className="text-xl font-semibold leading-tight">Michael Smith</p>
             <p className="text-sm uppercase">New York, NY</p>
@@ -57,7 +57,7 @@ const Testiomonials = () => {
             <img
               src="https://source.unsplash.com/50x50/?portrait?3"
               alt=""
-              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300"
+              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
             />
             <p className="text-xl font-semibold leading-tight">
               Sarah Thompson
@@ -77,7 +77,7 @@ const Testiomonials = () => {
             <img
               src="https://source.unsplash.com/50x50/?portrait?4"
               alt=""
-              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300"
+              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
             />
             <p className="text-xl font-semibold leading-tight">Alex Davis</p>
             <p className="text-sm uppercase">Houston, TX</p>
@@ -95,7 +95,7 @@ const Testiomonials = () => {
             <img
               src="https://source.unsplash.com/50x50/?portrait?4"
               alt=""
-              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300"
+              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
             />
             <p className="text-xl font-semibold leading-tight">Alex Davis</p>
             <p className="text-sm uppercase">Houston, TX</p>
@@ -113,7 +113,7 @@ const Testiomonials = () => {
             <img
               src="https://source.unsplash.com/50x50/?portrait?4"
               alt=""
-              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300"
+              className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
             />
             <p className="text-xl font-semibold leading-tight">Alex Davis</p>
             <p className="text-sm uppercase">Houston, TX</p>
