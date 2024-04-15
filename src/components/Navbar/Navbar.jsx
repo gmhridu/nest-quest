@@ -1,105 +1,38 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import logoImg from '../../../public/logo.jpg'
-import profileImg from '../../../public/userprofile.jpg'
+import React, { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import logoImg from "../../../public/logo.jpg";
+import profileImg from "../../../public/userprofile.jpg";
 import { BiLogIn } from "react-icons/bi";
-
+import { AuthContext } from "../../Providers/AuthProviders";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+  const notifyLogOut = () => toast("Log Out Successfully!");
+  const [displayName, setDisplayName] = useState("");
+  const { user, logOut, updateUserProfile } = useContext(AuthContext);
 
-  const navLinks = (
-    <>
-      <div className="flex flex-col lg:flex-row  gap-6 items-center justify-center">
-        <NavLink
-          to={"/"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to={"/about"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          About
-        </NavLink>
-        <NavLink
-          to={"/services"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Services
-        </NavLink>
-        <NavLink
-          to={"/testimonials"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Testimonials
-        </NavLink>
-        <NavLink
-          to={"/contact"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Contact
-        </NavLink>
-      </div>
-    </>
-  );
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        notifyLogOut();
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
+  };
 
-  const profileLinks = (
-    <>
-      <div className='flex flex-col gap-3 p-2'>
-        <NavLink
-          to={"/profile"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Profile
-        </NavLink>
-        <NavLink
-          to={"/settings"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Settings
-        </NavLink>
-        <NavLink
-          to={"/logout"}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-              : "font-medium leading-snug text-base"
-          }
-        >
-          Logout
-        </NavLink>
-      </div>
-    </>
-  );
+  const handleUpdateProfile = () => {
+    updateUserProfile(displayName, user.photoURL)
+      .then(() => {
+        toast.success("Profile updated successfully!");
+      })
+      .catch((error) => {
+        console.error("Profile update error:", error);
+        toast.error("Failed to update profile. Please try again.");
+      });
+  };
+
   return (
     <header className="navbar bg-base-200">
       <div className="navbar-start">
@@ -124,11 +57,66 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] shadow bg-white rounded-box w-52"
           >
-            {navLinks}
+            <div className="flex flex-col lg:flex-row  gap-6 items-center justify-center">
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to={"/about"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                About
+              </NavLink>
+              <NavLink
+                to={"/services"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                Services
+              </NavLink>
+              <NavLink
+                to={"/testimonials"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                Testimonials
+              </NavLink>
+              <NavLink
+                to={"/contact"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                Contact
+              </NavLink>
+            </div>
           </ul>
         </div>
         <div className="flex items-center">
-          <img className="hidden sm:flex w-8 h-8 rounded-full" src={logoImg} alt="" />
+          <img
+            className="hidden sm:flex w-8 h-8 rounded-full"
+            src={logoImg}
+            alt=""
+          />
           <Link to={"/"} className="btn btn-ghost">
             <h2 className=" text-xl sm:text-2xl font-bold">
               Nest<span className="text-navColor">Quest</span>
@@ -138,16 +126,74 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-         {navLinks}
+          <div className="flex flex-col lg:flex-row  gap-6 items-center justify-center">
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                  : "font-medium leading-snug text-base"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to={"/about"}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                  : "font-medium leading-snug text-base"
+              }
+            >
+              About
+            </NavLink>
+            <NavLink
+              to={"/services"}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                  : "font-medium leading-snug text-base"
+              }
+            >
+              Services
+            </NavLink>
+            <NavLink
+              to={"/testimonials"}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                  : "font-medium leading-snug text-base"
+              }
+            >
+              Testimonials
+            </NavLink>
+            <NavLink
+              to={"/contact"}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                  : "font-medium leading-snug text-base"
+              }
+            >
+              Contact
+            </NavLink>
+          </div>
         </ul>
       </div>
 
       <div className="navbar-end flex sm:space-x-4">
-        <Link className="btn text-base font-bold bg-navColor outline-none border-none text-white hover:bg-[#2c635f]">
-          {" "}
-          <BiLogIn className="text-lg" />
-          Sign In
-        </Link>
+        {user ? (
+          " "
+        ) : (
+          <Link
+            to={"/login"}
+            className="btn text-base font-bold bg-navColor outline-none border-none text-white hover:bg-[#2c635f]"
+          >
+            {" "}
+            <BiLogIn className="text-lg" />
+            Sign In
+          </Link>
+        )}
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
@@ -155,17 +201,57 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-16 rounded-full">
-              <img alt="user image" src={profileImg} />
+              {user ? (
+                <div 
+                  onMouseEnter={() => setDisplayName(user?.displayName)}
+                  onMouseLeave={() => setDisplayName("")}
+                >
+                  {user?.photoURL ? (
+                    <img alt="user image" src={user?.photoURL} />
+                  ) : 
+                    <img alt="default profile" src={profileImg} />
+                  }
+                  <span className="text-xs absolute bottom-0 right-0 text-gray-500 bg-white px-1 py-0.5 rounded-md">
+                    {displayName}
+                  </span>
+                </div>
+              ) : (
+                " "
+              )}
             </div>
           </div>
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-md bg-white rounded-box w-52"
           >
-            {profileLinks}
+            <div className="flex flex-col gap-3 p-2">
+              <NavLink
+                onClick={handleUpdateProfile}
+                to={"/profile"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                Update Profile
+              </NavLink>
+              <NavLink
+                onClick={handleLogOut}
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                    : "font-medium leading-snug text-base"
+                }
+              >
+                Logout
+              </NavLink>
+            </div>
           </ul>
         </div>
       </div>
+      <ToastContainer />
     </header>
   );
 };
