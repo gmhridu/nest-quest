@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { setUser, createUser } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     register,
@@ -25,7 +27,7 @@ const Register = () => {
           toast.success(
             `Your account has been created successfully! Please login now`
           );
-          setUser(result.user);
+          setUser(result?.user);
         }
       } catch (error) {
         console.error(error);
@@ -109,23 +111,32 @@ const Register = () => {
             <label htmlFor="password" className="block text-gray-600">
               Password
             </label>
-            <input
-              {...register("password", {
-                required: {
-                  value: true,
-                  message: "You must have to fill this input!!",
-                },
-                maxLength: {
-                  value: 30,
-                  message: "Your password is too long!",
-                },
-              })}
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
-            />
+            <div className="flex relative">
+              <input
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "You must have to fill this input!!",
+                  },
+                  maxLength: {
+                    value: 30,
+                    message: "Your password is too long!",
+                  },
+                })}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="Password"
+                className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
+              />
+              <button
+                className="absolute right-3 top-3 text-xl"
+                type="button"
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              >
+                {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
+              </button>
+            </div>
             <span>
               {errors.password && (
                 <p className="text-red-500">{errors?.password?.message}</p>
@@ -136,27 +147,37 @@ const Register = () => {
             </span>
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="comfirm_password" className="block text-gray-600">
+            <label htmlFor="confirm_password" className="block text-gray-600">
               Confirm Password
             </label>
-            <input
-              {...register("comfirm_password", {
-                required: {
-                  value: true,
-                  message: "You must have to fill this input!!",
-                },
-                maxLength: {
-                  value: 30,
-                  message: "Your password is too long!",
-                },
-              })}
-              type="password"
-              name="comfirm_password"
-              id="comfirm_password"
-              placeholder="Comfirm Password"
-              className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
-            />
-            <div>
+            <div className="flex relative">
+              <input
+                {...register("confirm_password", {
+                  required: {
+                    value: true,
+                    message: "You must have to fill this input!!",
+                  },
+                  maxLength: {
+                    value: 30,
+                    message: "Your password is too long!",
+                  },
+                })}
+                type={showPassword ? "text" : "password"}
+                name="confirm_password"
+                id="confirm_password"
+                placeholder="Confirm Password"
+                className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
+              />
+
+              <button
+                className="absolute right-3 top-3 text-xl"
+                type="button"
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              >
+                {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
+              </button>
+            </div>
+            <span>
               {errors.comfirm_password && (
                 <p className="text-red-500">
                   {errors?.comfirm_password?.message}
@@ -168,7 +189,7 @@ const Register = () => {
                     {errors?.comfirm_password?.message}
                   </p>
                 )}
-            </div>
+            </span>
           </div>
           <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor font-bold">
             Register
@@ -217,7 +238,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

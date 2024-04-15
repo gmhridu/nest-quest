@@ -28,10 +28,11 @@ const AuthProviders = ({ children }) => {
     return signOut(auth);
   };
 
-  const updateUserProfile = (displayName, photoUrl) => {
-    return updateProfile(user, {
-      displayName: displayName,
-      photoURL: photoUrl,
+  const updateUserProfile = (username, photoURL) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName: username,
+      photoURL: photoURL,
     });
   };
 

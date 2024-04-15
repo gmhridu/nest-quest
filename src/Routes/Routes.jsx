@@ -9,6 +9,7 @@ import Contact from "../pages/Contact/Contact";
 import Error from "../pages/Error/Error";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
-      }
+      },
+      {
+    path: "/profile",
+    element: <UpdateProfile/>
+  },
     ],
   },
   {

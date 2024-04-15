@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../../../public/logo.jpg";
 import profileImg from "../../../public/userprofile.jpg";
@@ -6,11 +6,28 @@ import { BiLogIn } from "react-icons/bi";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
   const notifyLogOut = () => toast("Log Out Successfully!");
+  const { user, setUser, logOut, updateUserProfile } = useContext(AuthContext);
   const [displayName, setDisplayName] = useState("");
-  const { user, logOut, updateUserProfile } = useContext(AuthContext);
+  const [displayEmail, setDisplayEmail] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setDisplayName(user.displayName || "");
+      setDisplayEmail(user.displayEmail || ""); 
+      setPhotoURL(user.photoURL || "");
+      console.log(user);
+    } else {
+      setDisplayName("");
+      setDisplayEmail("");
+      setPhotoURL("");
+    }
+  }, [user]);
 
   const handleLogOut = () => {
     logOut()
@@ -23,7 +40,7 @@ const Navbar = () => {
   };
 
   const handleUpdateProfile = () => {
-    updateUserProfile(displayName, user.photoURL)
+    updateUserProfile(displayName, photoURL)
       .then(() => {
         toast.success("Profile updated successfully!");
       })
@@ -180,10 +197,13 @@ const Navbar = () => {
           </div>
         </ul>
       </div>
-
       <div className="navbar-end flex sm:space-x-4">
         {user ? (
-          " "
+          <div
+            displayEmail={() => setDisplayName(user.displayEmail || "")}
+          >
+            <span>{displayEmail}</span>
+          </div>
         ) : (
           <Link
             to={"/login"}
@@ -202,16 +222,20 @@ const Navbar = () => {
           >
             <div className="w-16 rounded-full">
               {user ? (
-                <div 
-                  onMouseEnter={() => setDisplayName(user?.displayName)}
+                <div
+                  onMouseEnter={() => setDisplayName(user.displayName || "")}
                   onMouseLeave={() => setDisplayName("")}
                 >
-                  {user?.photoURL ? (
-                    <img alt="user image" src={user?.photoURL} />
-                  ) : 
+                  {photoURL ? (
+                    <img alt="user image" src={photoURL} />
+                  ) : (
                     <img alt="default profile" src={profileImg} />
-                  }
-                  <span className="text-xs absolute bottom-0 right-0 text-gray-500 bg-white px-1 py-0.5 rounded-md">
+                  )}
+                  <span
+                    data-tooltip-content={displayName}
+                    data-tooltip-place="bottom"
+                    className="text-xs absolute bottom-0 right-0 bg-black text-white px-1 py-0.5 rounded-md"
+                  >
                     {displayName}
                   </span>
                 </div>

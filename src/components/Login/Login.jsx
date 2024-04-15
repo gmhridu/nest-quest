@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { setUser, signInUser} = useContext(AuthContext);
   const navigate = useNavigate()
 
@@ -27,7 +29,7 @@ const Login = () => {
         })
         .catch((error) => {
           console.error(error)
-          
+
           toast.error('Failed to login. Please try again.')
       })
     }
@@ -43,7 +45,7 @@ const Login = () => {
               Email
             </label>
             <input
-              {...register('email')}
+              {...register("email")}
               type="email"
               name="email"
               id="email"
@@ -55,14 +57,23 @@ const Login = () => {
             <label htmlFor="password" className="block text-gray-600">
               Password
             </label>
-            <input
-               {...register('password')}
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
-            />
+            <div className="flex relative">
+              <input
+                {...register("password")}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="Password"
+                className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
+              />
+              <button
+                className="absolute right-3 top-3 text-xl"
+                type="button"
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              >
+                {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
+              </button>
+            </div>
             <div className="flex justify-end text-xs text-gray-600">
               <a rel="noopener noreferrer" href="#">
                 Forgot Password?
@@ -116,7 +127,7 @@ const Login = () => {
           </Link>
         </p>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
