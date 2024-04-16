@@ -2,14 +2,29 @@ import React from "react";
 
 const Testiomonials = () => {
   return (
-    <section className="my-3 bg-gray-100 text-gray-800">
-      <div className="container flex flex-col items-center mx-auto mb-3 md:p-6 md:px-12">
+    <section
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      className="my-3 bg-gray-100 text-gray-800"
+    >
+      <div
+        data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        className="container flex flex-col items-center mx-auto mb-3 md:p-6 md:px-12"
+      >
         <h1 className="py-4 text-4xl font-semibold leading-none text-center">
           What our customers are saying about us
         </h1>
       </div>
       <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
-        <div className="flex flex-col max-w-sm mx-4 my-2 shadow-lg">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          className="flex flex-col max-w-sm mx-4 my-2 shadow-lg"
+        >
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
             <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
               "From start to finish, XYZ Real Estate exceeded our expectations.
@@ -27,7 +42,12 @@ const Testiomonials = () => {
             <p className="text-sm uppercase">Los Angeles, CA</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-2 shadow-lg">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          className="flex flex-col max-w-sm mx-4 my-2 shadow-lg"
+        >
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
             <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
               "From start to finish, XYZ Real Estate exceeded our expectations.
@@ -45,7 +65,12 @@ const Testiomonials = () => {
             <p className="text-sm uppercase">New York, NY</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-2 shadow-lg">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          className="flex flex-col max-w-sm mx-4 my-2 shadow-lg"
+        >
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
             <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
               "From start to finish, XYZ Real Estate exceeded our expectations.
@@ -65,7 +90,12 @@ const Testiomonials = () => {
             <p className="text-sm uppercase">Chicago, IL</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-2 shadow-lg">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          className="flex flex-col max-w-sm mx-4 my-2 shadow-lg"
+        >
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
             <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
               "From start to finish, XYZ Real Estate exceeded our expectations.
@@ -83,7 +113,12 @@ const Testiomonials = () => {
             <p className="text-sm uppercase">Houston, TX</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-2 shadow-lg">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          className="flex flex-col max-w-sm mx-4 my-2 shadow-lg"
+        >
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
             <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
               "From start to finish, XYZ Real Estate exceeded our expectations.
@@ -101,7 +136,12 @@ const Testiomonials = () => {
             <p className="text-sm uppercase">Houston, TX</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-2 shadow-lg">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          className="flex flex-col max-w-sm mx-4 my-2 shadow-lg"
+        >
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
             <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
               "From start to finish, XYZ Real Estate exceeded our expectations.

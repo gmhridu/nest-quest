@@ -5,8 +5,13 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className="">
-      <footer className="footer p-10 bg-[#e6edeb] text-base-content">
+    <div>
+      <footer
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+        className="footer p-10 bg-[#e6edeb] text-base-content"
+      >
         <aside>
           <div className="flex items-center">
             <img src={logo} alt="" className="w-10 h-10 rounded-full" />

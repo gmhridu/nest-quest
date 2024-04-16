@@ -7,9 +7,19 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-6 text-gray-900 my-8 lg:my-28">
+    <section
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+      className="py-6 text-gray-900 my-8 lg:my-28"
+    >
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
-        <div className="py-6 md:py-0 md:px-6">
+        <div
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          className="py-6 md:py-0 md:px-6"
+        >
           <h1 className="text-4xl font-bold">Get in touch</h1>
           <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
           <div className="space-y-4">
@@ -57,6 +67,9 @@ const Contact = () => {
           </div>
         </div>
         <form
+          data-aos="fade-left"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
           onSubmit={handleSubmit}
           className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
         >

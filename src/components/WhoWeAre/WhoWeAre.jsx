@@ -7,7 +7,12 @@ import house3 from "../../assets/house4lg.png";
 const WhoWeAre = () => {
   return (
     <main className="container mx-auto items-center justify-center lg:flex px-3 mb-12 lg:pt-0 pt-8">
-      <div className="lg:w-2/5">
+      <div
+        data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+        className="lg:w-2/5"
+      >
         <p className="text-[#0c4f37] md:text-xl text-lg font-medium">
           WHO ARE WE
         </p>
@@ -46,7 +51,12 @@ const WhoWeAre = () => {
         </div>
       </div>
 
-      <div className="lg:w-1/2 flex items-center justify-center gap-4 lg:mt-0 mt-12 lg:h-auto h-[30rem]">
+      <div
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+        className="lg:w-1/2 flex items-center justify-center gap-4 lg:mt-0 mt-12 lg:h-auto h-[30rem]"
+      >
         <img
           src={house1}
           alt=""
@@ -66,7 +76,12 @@ const WhoWeAre = () => {
           <button className="bg-gradient-to-r from-[#8bd3ce] to-[#eff9f9] rounded-full h-12 w-12 cursor-auto absolute -bottom-8 left-16"></button>
         </div>
       </div>
-      <div className="lg:hidden block pt-4 py-16">
+      <div
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+        className="lg:hidden block pt-4 py-16"
+      >
         <div className="bg-white shadow-2xl px-4 py-6 rounded-3xl flex items-center gap-x-3 lg:w-4/5 mt-6">
           <FaHome className="text-4xl text-[#0c4f37] w-1/3" />
           <span className="space-y-2">

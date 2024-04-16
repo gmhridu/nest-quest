@@ -10,6 +10,7 @@ import Error from "../pages/Error/Error";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -27,23 +28,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <SingleEstateData />,
+        element: (
+          <PrivateRoutes>
+            <SingleEstateData />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/about",
-        element: <About/>,
+        element: <About />,
       },
       {
         path: "/services",
-        element: <Services/>,
+        element: <Services />,
       },
       {
         path: "/testimonials",
-        element: <Testiomonials/>,
+        element: <Testiomonials />,
       },
       {
         path: "/contact",
-        element: <Contact/>,
+        element: (
+          <PrivateRoutes>
+            <Contact />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",
@@ -54,15 +63,15 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-    path: "/profile",
-    element: <UpdateProfile/>
-  },
+        path: "/profile",
+        element: <UpdateProfile />,
+      },
     ],
   },
   {
     path: "*",
-    element: <Error/>,
-  }
+    element: <Error />,
+  },
 ]);
 
 export default router;

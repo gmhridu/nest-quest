@@ -8,15 +8,27 @@ import h6 from '../../images/h6.png'
 
 const Services = () => {
   return (
-    <section>
+    <section
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+    >
       <div
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
         className="hero h-[40vh] my-4 bg-blend-color"
         style={{
           backgroundImage: `url(${serviceImg})`,
           backgroundColor: "rgba(17, 40, 72, 0.629)",
         }}
       >
-        <div className="hero-content flex-row">
+        <div
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="hero-content flex-row"
+        >
           <div className="text-white">
             <h1 className="text-5xl font-bold">Services</h1>
             <p className="py-6 line-clamp-3 lg:line-clamp-0">
@@ -27,7 +39,12 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 my-10 transition">
+      <div
+        data-aos="fade-left"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        className="flex flex-col lg:flex-row items-center justify-center gap-6 my-10 transition"
+      >
         {/* card 1 */}
         <div>
           <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-gray-50  w-80 text-gray-800">

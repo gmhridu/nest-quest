@@ -61,7 +61,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="navbar bg-base-200">
+    <header
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      className="navbar bg-base-200"
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -266,7 +271,9 @@ const Navbar = () => {
                   className="flex justify-center items-center bg-black text-white font-medium rounded-full px-2"
                   displayName={() => setDisplayName(user.displayName || "")}
                 >
-                  <span className="text-lg font-medium text-nowrap">{displayName}</span>
+                  <span className="text-lg font-medium text-nowrap">
+                    {displayName}
+                  </span>
                 </div>
 
                 <NavLink

@@ -5,15 +5,24 @@ const MeetOurTeam = ({ data }) => {
   return (
     <section className="py-6 bg-gradient-to-r from-[#bce6e4] to-[#f8fdfe] text-gray-800 my-8">
       <div className="container flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10">
-        <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">
-        Meet Our team
-        </h1>
-        <p className="max-w-2xl text-center text-gray-600">
-          Meet our talented team members!
-        </p>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+        >
+          <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">
+            Meet Our team
+          </h1>
+          <p className="max-w-2xl text-center text-gray-600">
+            Meet our talented team members!
+          </p>
+        </div>
         <div className="flex flex-wrap justify-center">
           {firstSixAgents?.map((estate, index) => (
             <div
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="1000"
               key={index}
               className="flex flex-col justify-center m-8 text-center"
             >

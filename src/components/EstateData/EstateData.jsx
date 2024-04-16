@@ -20,7 +20,12 @@ const EstateData = ({ data }) => {
     <>
       <main className="container mx-auto px-6">
         <div className="lg:flex justify-between items-center">
-          <div className="lg:3/5">
+          <div
+            data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            className="lg:3/5"
+          >
             <h1 className="text-[#6f9789] lg:text-xl uppercase">
               Check our new
             </h1>
@@ -34,7 +39,12 @@ const EstateData = ({ data }) => {
               Start your search today and find the perfect property for you!
             </p>
           </div>
-          <div className="flex gap-x-4 lg:w-2/5 lg:pt-0 pt-6">
+          <div
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            className="flex gap-x-4 lg:w-2/5 lg:pt-0 pt-6"
+          >
             <button
               className="px-6 py-2 hover:bg-[#0ca39a] hover:text-white focus:bg-[#0ca39a] focus:text-white"
               onClick={() => setShowAll(true)}
@@ -53,7 +63,12 @@ const EstateData = ({ data }) => {
         <section className="mt-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3">
             {displayedData?.map((estate, index) => (
-              <div key={index}>
+              <div
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+                key={index}
+              >
                 <Link to={`/details/${estate?.id}`} className="mx-2 my-1">
                   <div className="bg-white shadow-lg p-5 rounded-lg rounded-tl-[90px] w-full max-w-[352px] mx-auto cursor-pointer hover:shadow-2xl transition">
                     <figure>
@@ -110,7 +125,7 @@ const EstateData = ({ data }) => {
           {!showAll && (
             <div className="text-center mt-4">
               <button
-                className="btn btn-primary"
+                className="btn btn-primary bg-navColor text-white"
                 onClick={() => setShowAll(true)}
               >
                 Show All

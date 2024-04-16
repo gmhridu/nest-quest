@@ -9,9 +9,9 @@ import MeetOurTeam from '../../components/MeetOurTeam/MeetOurTeam';
 const Home = () => {
   const data = useLoaderData()
   return (
-    <div>
+    <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
       <Banner />
-      <WhoWeAre/>
+      <WhoWeAre />
       <EstateData data={data} />
       <MeetOurTeam data={data} />
     </div>

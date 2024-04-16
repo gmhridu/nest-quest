@@ -7,6 +7,9 @@ const About = () => {
     <>
       <section>
         <div
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
           className="hero h-[40vh] my-4 bg-blend-color"
           style={{
             backgroundImage: `url(${aboutImg})`,
@@ -14,7 +17,12 @@ const About = () => {
           }}
         >
           <div className="hero-content flex-row">
-            <div className="text-white">
+            <div
+              data-aos="fade-right"
+              data-aos-easing="linear"
+              data-aos-duration="1000"
+              className="text-white"
+            >
               <h1 className="text-5xl font-bold">About Us</h1>
               <p className="py-6 line-clamp-3 lg:line-clamp-0">
                 At our core, we are passionate about providing exceptional
@@ -29,7 +37,12 @@ const About = () => {
           </div>
         </div>
         <div className="container flex flex-col lg:flex-row items-center justify-between mx-auto gap-x-10 mt-6">
-          <div className="my-5">
+          <div
+            data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+            className="my-5"
+          >
             <h1 className="text-[#2d3954] text-3xl font-semibold capitalize mb-3">
               Our Agency Story
             </h1>
@@ -57,7 +70,12 @@ const About = () => {
               More About Us
             </button>
           </div>
-          <div className="flex items-center justify-center">
+          <div
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+            className="flex items-center justify-center"
+          >
             <img className="rounded-lg" src={aboutImg2} alt="" />
           </div>
         </div>
