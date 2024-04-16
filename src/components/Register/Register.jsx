@@ -4,10 +4,15 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { FcGoogle } from "react-icons/fc";
+
+import { FaGithub } from "react-icons/fa";
+import { GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { setUser, createUser } = useContext(AuthContext);
+  const { setUser, createUser} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const {
@@ -17,17 +22,25 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     if (data) {
-      const { email, password } = data;
+      const { username, email, password, photo } = data;
       try {
         const result = await createUser(email, password);
+
+        await updateProfile(auth.currentUser, {
+          displayName: username,
+          photoURL: photo
+        });
+
         if (result?.user) {
+          const userWithUsername = { ...result?.user, username, photo };
+          setUser(userWithUsername);
+
           navigate("/login");
+
           toast.success(
             `Your account has been created successfully! Please login now`
           );
-          setUser(result?.user);
         }
       } catch (error) {
         console.error(error);
@@ -35,6 +48,25 @@ const Register = () => {
       }
     }
   };
+
+
+  // google signIn
+  const provider = new GoogleAuthProvider()
+  const handleGoogleSignIn = () => { 
+    signInWithPopup(auth, provider)
+      .then((result) => {
+       updateProfile(auth.currentUser, { displayName: username });
+        if (result?.user) {
+          const userWithUsername = { ...result?.user, username, photo };
+          setUser(userWithUsername);
+         navigate("/")
+         toast.success("Login successfully!")
+       }
+      })
+      .catch((error) => {
+       console.error(error)
+    })
+  }
 
   return (
     <div className="min-h-[640px] flex items-center justify-center my-6">
@@ -202,34 +234,22 @@ const Register = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
         </div>
-        <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              className="w-5 h-5 fill-current"
-            >
-              {/* Google icon */}
-            </svg>
-          </button>
-          <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              className="w-5 h-5 fill-current"
-            >
-              {/* Twitter icon */}
-            </svg>
-          </button>
-          <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              className="w-5 h-5 fill-current"
-            >
-              {/* GitHub icon */}
-            </svg>
-          </button>
+        <div className="flex flex-col gap-4 justify-center cursor-pointer ">
+          <Link
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center bg-white border px-4 rounded-xl"
+          >
+            <button className="p-3 rounded-sm">
+              <FcGoogle />
+            </button>
+            Register With Google
+          </Link>
+          <div className="flex items-center justify-center bg-white border px-4 rounded-xl">
+            <Link className="p-3 rounded-sm">
+              <FaGithub />
+            </Link>
+            Register With GitHub
+          </div>
         </div>
         <p className="text-xs text-center sm:px-6 text-gray-600">
           Already have an account?{" "}

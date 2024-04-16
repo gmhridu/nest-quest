@@ -8,24 +8,30 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { FaCircleUser } from "react-icons/fa6";
 
 const Navbar = () => {
-  const notifyLogOut = () => toast("Log Out Successfully!");
-  const { user, setUser, logOut, updateUserProfile } = useContext(AuthContext);
+  const { user, logOut, updateUserProfile } = useContext(AuthContext);
   const [displayName, setDisplayName] = useState("");
+  const [hoverName, setHoverName] = useState("")
   const [displayEmail, setDisplayEmail] = useState("");
   const [photoURL, setPhotoURL] = useState("");
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(!!user); 
 
   useEffect(() => {
     if (user) {
       setDisplayName(user.displayName || "");
-      setDisplayEmail(user.displayEmail || ""); 
+      setHoverName(user.displayName || "")
+      setDisplayEmail(user.email || "");
       setPhotoURL(user.photoURL || "");
-      console.log(user);
+      console.log(user.displayName);
+      setIsUserLoggedIn(true);
     } else {
       setDisplayName("");
       setDisplayEmail("");
       setPhotoURL("");
+      setIsUserLoggedIn(false); 
     }
   }, [user]);
 
@@ -33,6 +39,7 @@ const Navbar = () => {
     logOut()
       .then(() => {
         notifyLogOut();
+        setIsUserLoggedIn(false); 
       })
       .catch((error) => {
         console.error("Logout error:", error);
@@ -44,10 +51,13 @@ const Navbar = () => {
       .then(() => {
         toast.success("Profile updated successfully!");
       })
-      .catch((error) => {
-        console.error("Profile update error:", error);
+      .catch(() => {
         toast.error("Failed to update profile. Please try again.");
       });
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
   };
 
   return (
@@ -199,10 +209,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex sm:space-x-4">
         {user ? (
-          <div
-            displayEmail={() => setDisplayName(user.displayEmail || "")}
-          >
-            <span>{displayEmail}</span>
+          <div displayEmail={() => setDisplayEmail(user.email || "")}>
+            <span className="text-lg font-medium">{displayEmail}</span>
           </div>
         ) : (
           <Link
@@ -219,24 +227,28 @@ const Navbar = () => {
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
+            onClick={toggleDropdown}
           >
-            <div className="w-16 rounded-full">
+            <div className="rounded-full">
               {user ? (
                 <div
-                  onMouseEnter={() => setDisplayName(user.displayName || "")}
-                  onMouseLeave={() => setDisplayName("")}
+                  onMouseOver={() => setHoverName(user?.displayName || "")}
+                  onMouseOut={() => setHoverName("")}
                 >
                   {photoURL ? (
-                    <img alt="user image" src={photoURL} />
+                    <img
+                      className="w-16 hover:{displayName}"
+                      alt="user image"
+                      src={photoURL}
+                    />
                   ) : (
-                    <img alt="default profile" src={profileImg} />
+                    <FaCircleUser className="text-3xl flex items-center justify-center" />
                   )}
                   <span
-                    data-tooltip-content={displayName}
-                    data-tooltip-place="bottom"
-                    className="text-xs absolute bottom-0 right-0 bg-black text-white px-1 py-0.5 rounded-md"
+                    className="text-xs text-center text-nowrap absolute -bottom-5 right-0 bg-black text-white px-3 py-0.5 rounded-md"
+                    data-tip={hoverName}
                   >
-                    {displayName}
+                    {hoverName}
                   </span>
                 </div>
               ) : (
@@ -244,35 +256,44 @@ const Navbar = () => {
               )}
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-md bg-white rounded-box w-52"
-          >
-            <div className="flex flex-col gap-3 p-2">
-              <NavLink
-                onClick={handleUpdateProfile}
-                to={"/profile"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-                    : "font-medium leading-snug text-base"
-                }
-              >
-                Update Profile
-              </NavLink>
-              <NavLink
-                onClick={handleLogOut}
-                to={"/login"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
-                    : "font-medium leading-snug text-base"
-                }
-              >
-                Logout
-              </NavLink>
-            </div>
-          </ul>
+          {user && isDropdownVisible && (
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 flex items-center justify-center shadow-md bg-white rounded-box w-60"
+            >
+              <div className="flex flex-col gap-3 p-2">
+                <div
+                  className="flex justify-center items-center bg-black text-white font-medium rounded-full px-2"
+                  displayName={() => setDisplayName(user.displayName || "")}
+                >
+                  <span className="text-lg font-medium text-nowrap">{displayName}</span>
+                </div>
+
+                <NavLink
+                  onClick={handleUpdateProfile}
+                  to={"/profile"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                      : "font-medium leading-snug text-base"
+                  }
+                >
+                  Update Profile
+                </NavLink>
+                <NavLink
+                  onClick={handleLogOut}
+                  to={"/login"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-navColor rounded-full px-4 py-1 text-white font-medium text-base"
+                      : "font-medium leading-snug text-base"
+                  }
+                >
+                  Logout
+                </NavLink>
+              </div>
+            </ul>
+          )}
         </div>
       </div>
       <ToastContainer />

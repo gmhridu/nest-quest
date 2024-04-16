@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { Link, useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
   const { register, handleSubmit } = useForm();
   const { updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     updateUserProfile(data.username, data.photo)
       .then(() => {
         if (data.photo) {
           toast.success("Profile updated successfully");
+          navigate('/')
         }
-        console.log("Profile updated successfully");
       })
       .catch((error) => {
         console.error("Failed to update profile:", error);
@@ -61,7 +63,8 @@ const UpdateProfile = () => {
         </fieldset>
         <button
           type="submit"
-          className="block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor font-bold"
+          className="block btn btn-primary w-full p-3 text-center rounded-lg text-gray-50 bg-navColor 
+          hover:bg-teal-700 font-bold"
         >
           Update Profile
         </button>
