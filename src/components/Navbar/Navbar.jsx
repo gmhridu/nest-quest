@@ -1,12 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../../../public/logo.jpg";
-import profileImg from "../../../public/userprofile.jpg";
 import { BiLogIn } from "react-icons/bi";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { FaCircleUser } from "react-icons/fa6";
 

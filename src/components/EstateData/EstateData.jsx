@@ -3,16 +3,15 @@ import { BiArea, BiBath, BiBed } from "react-icons/bi";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
-const EstateData = ({ data }) => {
+const EstateData = ({ jsonData }) => {
   const [showAll, setShowAll] = useState(false);
   const [estateData, setEstateData] = useState([]);
 
   useEffect(() => {
-    if (data && data?.estates) {
-      setEstateData(data?.estates);
+    if (jsonData && jsonData?.estates) {
+      setEstateData(jsonData?.estates);
     }
-  }, [data]);
-
+  }, [jsonData]);
 
   const displayedData = showAll ? estateData : estateData?.slice(0, 6);
 

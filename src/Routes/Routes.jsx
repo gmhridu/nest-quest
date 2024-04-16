@@ -20,11 +20,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: async () => {
-          const fetchData = await fetch("/public/data.json");
-          const data = await fetchData.json();
-          return data;
-        },
       },
       {
         path: "/details/:id",

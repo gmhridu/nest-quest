@@ -1,7 +1,7 @@
 import React from "react";
 
-const MeetOurTeam = ({ data }) => {
-  const firstSixAgents = data?.estates?.slice(0, 4);
+const MeetOurTeam = ({ jsonData }) => {
+  const firstSixAgents = jsonData?.estates?.slice(0, 4);
   return (
     <section className="py-6 bg-gradient-to-r from-[#bce6e4] to-[#f8fdfe] text-gray-800 my-8">
       <div className="container flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10">

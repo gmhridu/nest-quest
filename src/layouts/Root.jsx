@@ -3,7 +3,10 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
+
 const Root = () => {
+
+  
   const location = useLocation();
 
   useEffect(() => {
@@ -18,6 +21,8 @@ const Root = () => {
       return "NestQuest";
     }
   };
+
+
 
   return (
     <div className="bg-white font-primary">
