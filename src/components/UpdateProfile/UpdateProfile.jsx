@@ -13,7 +13,7 @@ const UpdateProfile = () => {
       .then(() => {
         if (data.photo) {
           toast.success("Profile updated successfully");
-          navigate("/");
+          navigate('/')
         }
       })
       .catch((error) => {
@@ -28,10 +28,8 @@ const UpdateProfile = () => {
         className="container flex flex-col mx-auto space-y-12"
       >
         <fieldset className="grid md:grid-cols-3 grid-cols-1  gap-6 p-6 rounded-md shadow-sm bg-gray-50">
-          <div
-            className="space-y-2 flex flex-col items-center justify-center
-          md:items-start col-span-full lg:col-span-1"
-          >
+          <div className="space-y-2 flex flex-col items-center justify-center
+          md:items-start col-span-full lg:col-span-1">
             <p className="font-medium text-left">Profile</p>
             <p className="text-xs text-left">Update Your Profile!</p>
           </div>
@@ -50,6 +48,9 @@ const UpdateProfile = () => {
               />
             </div>
             <div className="space-y-1 text-sm">
+              <label htmlFor="photo" className="block text-gray-600">
+                Photo
+              </label>
               <input
                 {...register("photo")}
                 type="text"

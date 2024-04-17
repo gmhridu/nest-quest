@@ -30,13 +30,11 @@ const Home = () => {
 
    if (!jsonData) {
      return <Loader />; 
-   }
-
-    
-    
+  } 
+ 
   return (
     <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
-      <Banner />
+      <Banner jsonData={jsonData} />
       <WhoWeAre />
       <EstateData jsonData={jsonData} />
       <MeetOurTeam jsonData={jsonData} />

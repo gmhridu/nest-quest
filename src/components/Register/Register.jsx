@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import Lottie from "lottie-react"
+import successfull from '../../successfully.json'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,7 +35,6 @@ const Register = () => {
           const userWithUsername = { ...result?.user, username, photo };
           setUser(userWithUsername);
 
-          navigate("/login");
 
           toast.success(
             `Your account has been created successfully! Please login now`
@@ -237,9 +238,43 @@ const Register = () => {
                 )}
             </span>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor font-bold">
+          {/* <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor font-bold">
+            Register
+          </button> */}
+          {/* Open the modal using document.getElementById('ID').showModal() method */}
+          {/* You can open the modal using document.getElementById('ID').showModal() method */}
+          <button
+            className="btn block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor hover:bg-teal-600 font-bold"
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+          >
             Register
           </button>
+          <dialog
+            id="my_modal_3"
+            className="modal bg-transparent min-h-screen flex items-center justify-center"
+          >
+            <div className="modal-box bg-white flex flex-col items-center">
+              <div>
+                <Lottie className=" w-56" animationData={successfull} />
+              </div>
+              <form method="dialog">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
+              <div className="space-y-3">
+                <h3 className="font-bold text-lg">
+                  Account Register Successfully!{" "}
+                </h3>
+                <p>Please Login now to get access...</p>
+                <Link
+                  to={'/login'}
+                  className="btn  btn-primary w-full text-gray-50 bg-navColor hover:bg-teal-700 font-medium text-lg rounded-2xl">
+                  Login Now
+                </Link>
+              </div>
+            </div>
+          </dialog>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
@@ -249,7 +284,11 @@ const Register = () => {
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <Link onClick={handleGoogleSignIn} aria-label="Register in with Google" className="p-3 rounded-sm">
+          <Link
+            onClick={handleGoogleSignIn}
+            aria-label="Register in with Google"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -260,7 +299,9 @@ const Register = () => {
           </Link>
           <Link
             onClick={handleGithubSignIn}
-            aria-label="Register in with GitHub" className="p-3 rounded-sm">
+            aria-label="Register in with GitHub"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -277,7 +318,6 @@ const Register = () => {
           </Link>
         </p>
       </div>
-      <ToastContainer />
     </div>
   );
 };
