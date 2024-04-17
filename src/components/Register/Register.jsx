@@ -11,7 +11,7 @@ import successfull from '../../successfully.json'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {user, setUser, createUser} = useContext(AuthContext);
+  const {setUser, createUser} = useContext(AuthContext);
   const navigate = useNavigate();
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -43,6 +43,8 @@ const Register = () => {
           toast.success(
             `Your account has been created successfully! Please login now`
           );
+          navigate("/login");
+          setUser("")
         }
       } catch (error) {
         console.error(error);
