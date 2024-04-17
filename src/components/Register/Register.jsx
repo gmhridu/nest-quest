@@ -11,8 +11,9 @@ import successfull from '../../successfully.json'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { setUser, createUser} = useContext(AuthContext);
+  const {user, setUser, createUser} = useContext(AuthContext);
   const navigate = useNavigate();
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
   const {
     register,
@@ -23,6 +24,11 @@ const Register = () => {
   const onSubmit = async (data) => {
     if (data) {
       const { username, email, password, photo } = data;
+      if (!passwordRegex.test(password)) {
+        toast.error("Password must contain at least one lowercase letter, one uppercase letter, and one number");
+        return;
+      }
+
       try {
         const result = await createUser(email, password);
 
@@ -34,8 +40,6 @@ const Register = () => {
         if (result?.user) {
           const userWithUsername = { ...result?.user, username, photo };
           setUser(userWithUsername);
-
-
           toast.success(
             `Your account has been created successfully! Please login now`
           );
@@ -238,43 +242,14 @@ const Register = () => {
                 )}
             </span>
           </div>
-          {/* <button className="block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor font-bold">
-            Register
-          </button> */}
-          {/* Open the modal using document.getElementById('ID').showModal() method */}
-          {/* You can open the modal using document.getElementById('ID').showModal() method */}
+
           <button
             className="btn block w-full p-3 text-center rounded-sm text-gray-50 bg-navColor hover:bg-teal-600 font-bold"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             Register
           </button>
-          <dialog
-            id="my_modal_3"
-            className="modal bg-transparent min-h-screen flex items-center justify-center"
-          >
-            <div className="modal-box bg-white flex flex-col items-center">
-              <div>
-                <Lottie className=" w-56" animationData={successfull} />
-              </div>
-              <form method="dialog">
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                  ✕
-                </button>
-              </form>
-              <div className="space-y-3">
-                <h3 className="font-bold text-lg">
-                  Account Register Successfully!{" "}
-                </h3>
-                <p>Please Login now to get access...</p>
-                <Link
-                  to={'/login'}
-                  className="btn  btn-primary w-full text-gray-50 bg-navColor hover:bg-teal-700 font-medium text-lg rounded-2xl">
-                  Login Now
-                </Link>
-              </div>
-            </div>
-          </dialog>
+      
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
@@ -318,6 +293,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 };
