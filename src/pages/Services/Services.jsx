@@ -12,12 +12,13 @@ const Services = () => {
       data-aos="fade-down"
       data-aos-easing="linear"
       data-aos-duration="1000"
+      className="px-3 md:px-0"
     >
       <div
         data-aos="fade-down"
         data-aos-easing="linear"
         data-aos-duration="1000"
-        className="hero h-[40vh] my-4 bg-blend-color"
+        className="hero h-[40vh] my-4 bg-blend-color rounded-lg"
         style={{
           backgroundImage: `url(${serviceImg})`,
           backgroundColor: "rgba(17, 40, 72, 0.629)",

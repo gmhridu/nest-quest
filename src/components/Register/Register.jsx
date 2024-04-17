@@ -4,9 +4,6 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
-
-import { FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 

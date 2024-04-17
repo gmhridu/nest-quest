@@ -5,14 +5,14 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center'>
       <footer
         data-aos="fade-up"
         data-aos-easing="linear"
         data-aos-duration="1500"
         className="footer p-10 bg-[#e6edeb] text-base-content"
       >
-        <aside>
+        <aside className="">
           <div className="flex items-center">
             <img src={logo} alt="" className="w-10 h-10 rounded-full" />
             <Link to={"/"} className="btn btn-ghost">
@@ -36,37 +36,39 @@ const Footer = () => {
           </div>
           <div></div>
         </aside>
-        <nav>
-          <h6 className="footer-title">QUICK LINKS</h6>
-          <Link to={"/"} className="link link-hover">
-            Home
-          </Link>
-          <Link to={"/about"} className="link link-hover">
-            About
-          </Link>
-          <Link to={"/services"} className="link link-hover">
-            Services
-          </Link>
-          <Link to={"/testimonials"} className="link link-hover">
-            Testimonials
-          </Link>
-          <Link to={"/contact"} className="link link-hover">
-            Contact
-          </Link>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </nav>
+        <div className="grid grid-cols-3 lg:grid-cols-3 space-x-20">
+          <nav className="flex flex-col">
+            <h6 className="footer-title">QUICK LINKS</h6>
+            <Link to={"/"} className="link link-hover">
+              Home
+            </Link>
+            <Link to={"/about"} className="link link-hover">
+              About
+            </Link>
+            <Link to={"/services"} className="link link-hover">
+              Services
+            </Link>
+            <Link to={"/testimonials"} className="link link-hover">
+              Testimonials
+            </Link>
+            <Link to={"/contact"} className="link link-hover">
+              Contact
+            </Link>
+          </nav>
+          <nav className="flex flex-col">
+            <h6 className="footer-title">Company</h6>
+            <a className="link link-hover">About us</a>
+            <a className="link link-hover">Contact</a>
+            <a className="link link-hover">Jobs</a>
+            <a className="link link-hover">Press kit</a>
+          </nav>
+          <nav className="flex flex-col col-span-2 lg:col-auto">
+            <h6 className="footer-title">Legal</h6>
+            <a className="link link-hover">Terms of use</a>
+            <a className="link link-hover">Privacy policy</a>
+            <a className="link link-hover">Cookie policy</a>
+          </nav>
+        </div>
       </footer>
     </div>
   );

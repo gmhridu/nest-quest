@@ -17,7 +17,7 @@ const SingleEstateData = () => {
   }
   
   return (
-    <section>
+    <section className="px-3 lg:px-0">
       <div
         className="container mx-auto min-h-[800px] mb-14 my-10
       "
@@ -42,7 +42,7 @@ const SingleEstateData = () => {
         <div className="flex flex-col items-start gap-8 lg:flex-row">
           <div className="sm:max-w-[768px]">
             <div className="mb-8">
-              <img src={house?.imageLg} alt="" />
+              <img className="rounded-lg" src={house?.imageLg} alt="" />
             </div>
             <div className="flex gap-x-6 text-violet-700 mb-6">
               <div className="flex gap-x-2 items-center">
@@ -71,27 +71,34 @@ const SingleEstateData = () => {
               </div>
             </div>
             {/* form */}
-            <form onSubmit={handleContactUs} className='flex flex-col gap-y-4'>
+            <form onSubmit={handleContactUs} className="flex flex-col gap-y-4">
               <input
                 className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm"
                 type="text"
-                placeholder='Name*'
+                placeholder="Name*"
               />
               <input
                 className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm"
                 type="text"
-                placeholder='Email*'
+                placeholder="Email*"
               />
               <input
                 className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full px-4 h-14 text-sm"
                 type="text"
-                placeholder='Phone*'
+                placeholder="Phone*"
               />
-              <textarea className='border border-gray-300 focus:border-violet-700 outline-none resize-none rounded w-full p-4 h-36 text-sm text-gray-400
-             ' placeholder='Message&*'></textarea>
-              <div className='flex gap-x-2'>
-                <button className='btn btn-primary bg-violet-700 hover:bg-violet-800 text-white rounded p-4 text-sm transition'>Send Message</button>
-                <button className='btn btn-primary border border-violet-700 text-violet-700 hover:border-violet-500hover:text-violet-500 rounded p-4 text-sm transition'>Call</button>
+              <textarea
+                className="border border-gray-300 focus:border-violet-700 outline-none resize-none rounded w-full p-4 h-36 text-sm text-gray-400
+             "
+                placeholder="Message&*"
+              ></textarea>
+              <div className="flex gap-x-2">
+                <button className="btn btn-primary bg-violet-700 hover:bg-violet-800 text-white rounded p-4 text-sm transition">
+                  Send Message
+                </button>
+                <button className="btn btn-primary border border-violet-700 text-violet-700 hover:border-violet-500hover:text-violet-500 rounded p-4 text-sm transition">
+                  Call
+                </button>
               </div>
             </form>
           </div>

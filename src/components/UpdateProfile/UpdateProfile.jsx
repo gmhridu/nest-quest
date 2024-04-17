@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
   const { register, handleSubmit } = useForm();
@@ -13,7 +13,7 @@ const UpdateProfile = () => {
       .then(() => {
         if (data.photo) {
           toast.success("Profile updated successfully");
-          navigate('/')
+          navigate("/");
         }
       })
       .catch((error) => {
@@ -22,15 +22,18 @@ const UpdateProfile = () => {
   };
 
   return (
-    <section className="min-h-[600px] flex justify-center items-center p-6 bg-gray-100 text-gray-900">
+    <section className="lg:min-h-[600px] h-auto flex justify-center items-center p-6 bg-gray-100 text-gray-900">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="container flex flex-col mx-auto space-y-12"
       >
-        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
-          <div className="space-y-2 col-span-full lg:col-span-1">
-            <p className="font-medium">Profile</p>
-            <p className="text-xs">Update Your Profile!</p>
+        <fieldset className="grid md:grid-cols-3 grid-cols-1  gap-6 p-6 rounded-md shadow-sm bg-gray-50">
+          <div
+            className="space-y-2 flex flex-col items-center justify-center
+          md:items-start col-span-full lg:col-span-1"
+          >
+            <p className="font-medium text-left">Profile</p>
+            <p className="text-xs text-left">Update Your Profile!</p>
           </div>
           <div className="flex flex-col gap-4">
             <div className="space-y-1 text-sm">
@@ -43,20 +46,17 @@ const UpdateProfile = () => {
                 name="username"
                 id="username"
                 placeholder="Username"
-                className="input input-bordered input-md w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
               />
             </div>
             <div className="space-y-1 text-sm">
-              <label htmlFor="photo" className="block text-gray-600">
-                Photo
-              </label>
               <input
                 {...register("photo")}
                 type="text"
                 name="photo"
                 id="photo"
                 placeholder="Photo URL"
-                className="input input-bordered input-md w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
               />
             </div>
           </div>

@@ -6,7 +6,6 @@ import Footer from "../components/Footer/Footer";
 
 const Root = () => {
 
-  
   const location = useLocation();
 
   useEffect(() => {

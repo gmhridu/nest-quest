@@ -23,7 +23,6 @@ const Navbar = () => {
       setHoverName(user.displayName || "")
       setDisplayEmail(user.email || "");
       setPhotoURL(user.photoURL || "");
-      console.log(user.displayName);
       setIsUserLoggedIn(true);
     } else {
       setDisplayName("");
@@ -213,7 +212,7 @@ const Navbar = () => {
       <div className="navbar-end flex sm:space-x-4">
         {user ? (
           <div displayEmail={() => setDisplayEmail(user.email || "")}>
-            <span className="text-lg font-medium">{displayEmail}</span>
+            <span className="lg:block hidden text-lg font-medium">{displayEmail}</span>
           </div>
         ) : (
           <Link
