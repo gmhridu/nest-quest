@@ -5,7 +5,8 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './Routes/Routes'
 import AuthProviders from './Providers/AuthProviders'
-import DataProviders, { DataProvider } from './Providers/DataProviders'
+import DataProviders from './Providers/DataProviders'
+
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
