@@ -1,12 +1,12 @@
 #Nest_Quest
 
-##Description:
+## Description:
 "Nest_Quest" is a comprehensive real estate project designed to facilitate the buying and selling of apartments and houses. It offers a user-friendly platform where users can browse through various listings, explore property details, and connect with sellers or buyers seamlessly. Whether you are in search of your dream home or looking to sell your property, Nest_Quest provides the tools and resources necessary to make the process efficient and hassle-free.
 
-##Usage:
+## Usage:
 Nest_Quest simplifies the process of buying and selling real estate properties by providing the following functionalities:
 
-Listing Search: Users can easily search for apartments and houses based on their preferences, such as location, property type, price range, and more.
+## Listing Search: Users can easily search for apartments and houses based on their preferences, such as location, property type, price range, and more.
 Property Details: Detailed information about each listing is available, including images, descriptions, amenities, and contact details of the seller or agent.
 Advanced Search: Advanced search options allow users to refine their search criteria further, ensuring that they find properties that meet their specific requirements.
 Interactive Maps: Integration with Google Maps and Leaflet enables users to visualize property locations accurately and explore nearby amenities and facilities.
